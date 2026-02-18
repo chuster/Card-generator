@@ -1,10 +1,9 @@
 
-export enum Tier {
-  CLASSIC = 'Classic',
-  SILVER = 'Silver',
-  GOLD = 'Gold',
-  PLATINUM = 'Platinum',
-  DIAMOND = 'Diamond'
+export interface StatusTier {
+  name: string;
+  base: string;
+  secondary: string;
+  text: string;
 }
 
 export interface Airline {
@@ -14,12 +13,13 @@ export interface Airline {
   primaryColor: string;
   accentColor: string;
   partners: string[];
+  tiers: StatusTier[];
 }
 
 export interface CardState {
-  airline: string;
+  airlineId: string;
   bank: string;
-  tier: Tier;
+  tierIndex: number;
   cardHolder: string;
   cardNumber: string;
 }
